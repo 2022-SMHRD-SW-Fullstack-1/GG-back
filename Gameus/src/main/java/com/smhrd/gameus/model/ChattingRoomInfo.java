@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -20,6 +20,6 @@ public class ChattingRoomInfo {
     private String cr_content;
 
     // 방 개설일자 
-    private Timestamp cr_opendate;
+    private Date cr_opendate;
     
 }

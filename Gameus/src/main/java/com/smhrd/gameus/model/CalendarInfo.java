@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -11,10 +11,10 @@ public class CalendarInfo {
     private int cal_seq;
 
     // 캘린더 시작일 
-    private Timestamp cal_s_dt;
+    private Date cal_s_dt;
 
     // 캘린더 종료일 
-    private Timestamp cal_e_dt;
+    private Date cal_e_dt;
 
     // 일정 내용 
     private String cal_schedule;

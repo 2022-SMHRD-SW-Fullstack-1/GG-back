@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -17,9 +17,9 @@ public class NotificationInfo {
     private String noti_msg;
 
     // 알림 전송 일자 
-    private Timestamp noti_dt;
+    private Date noti_dt;
 
     // 알림 확인 시간 
-    private Timestamp read_time;
+    private Date read_time;
     
 }

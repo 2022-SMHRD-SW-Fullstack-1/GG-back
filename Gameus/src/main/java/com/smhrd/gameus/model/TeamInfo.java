@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -14,10 +14,10 @@ public class TeamInfo {
     private String team_name;
 
     // 팀 개설일자 
-    private Timestamp team_opendate;
+    private Date team_opendate;
 
     // 팀 정원 
-    private Integer team_max;
+    private int team_max;
 
     // 팀 개설자 
     private String user_id;

@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -14,7 +14,7 @@ public class VotingListInfo {
     private String vl_subject;
 
     // 투표 마감일 
-    private Timestamp vl_end_dt;
+    private Date vl_end_dt;
 
     // 생성 회원 
     private String user_id;
@@ -23,7 +23,7 @@ public class VotingListInfo {
     private int team_seq;
 
     // 등록 일자 
-    private Timestamp reg_date;
+    private Date reg_date;
 
     // 항목 
     private String vl_items;

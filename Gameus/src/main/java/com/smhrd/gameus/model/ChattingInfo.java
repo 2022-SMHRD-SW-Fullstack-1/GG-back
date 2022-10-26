@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class ChattingInfo {
     private String msg;
 
     // 발화 시간 
-    private Timestamp msg_time;
+    private Date msg_time;
 
     // 방 순번 
     private int cr_seq;

@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -29,5 +29,5 @@ public class UserInfo {
     private int user_favor;
 
     // 회원 생성날짜 
-    private Timestamp user_joindate;
+    private Date user_joindate;
 }

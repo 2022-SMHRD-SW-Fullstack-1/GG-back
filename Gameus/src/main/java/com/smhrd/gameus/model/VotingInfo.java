@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -20,6 +20,6 @@ public class VotingInfo {
     private String vt_result;
 
     // 투표 일자 
-    private Timestamp vt_date;
+    private Date vt_date;
 
 }

@@ -1,6 +1,6 @@
 package com.smhrd.gameus.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class TeamMember {
     private String applicant;
 
     // 지원 일자 
-    private Timestamp tm_date;
+    private Date tm_date;
 
     // 승인 여부 
     private String confirm_yn;
