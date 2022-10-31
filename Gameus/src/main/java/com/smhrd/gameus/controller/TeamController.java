@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smhrd.gameus.service.TeamService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
 public class TeamController {
 	
 	@Autowired
 	TeamService teamService;
 	
-	@PostMapping("/team")
+	@PostMapping("/api/team")
 	public void teamAdd(@RequestBody Map<String, Object> newTeamInfo) {
 		teamService.teamAdd(newTeamInfo);
 //		HashMap<String, Object> resultMap = new HashMap<String, Object>();
@@ -27,8 +26,16 @@ public class TeamController {
 //		Gson gson = new Gson();
 //		
 //		String result = gson.toJson(resultMap);
-		
-		System.out.println(newTeamInfo.get("teamName"));
-		System.out.println(newTeamInfo.get("game"));
+	
 	}
+	
+//	@GetMapping("/api/")
+//	public void teamJoin() {
+//		
+//	}
+//	
+//	@GetMapping("/api/")
+//	public void teamSearch() {
+//		
+//	}
 }
