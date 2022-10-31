@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smhrd.gameus.model.TeamInfo;
 import com.smhrd.gameus.service.TeamService;
 
-@CrossOrigin(origins = "http://localhost:8090")
 @RestController
 public class TeamController {
 	
@@ -26,7 +25,7 @@ public class TeamController {
 //
 //	}
 	
-	@GetMapping("/allteam")
+	@GetMapping("/api/allteam")
     public List<TeamInfo> list(){
         return teamService.selectAllTeam();
 

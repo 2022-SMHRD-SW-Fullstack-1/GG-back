@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 	<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-		select * from team_info
+		select * from team_info 
 	</select>
 
 </mapper>

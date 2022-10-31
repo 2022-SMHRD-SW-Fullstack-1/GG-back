@@ -26,6 +26,6 @@ public class VotingListInfo {
     private Date reg_date;
 
     // 항목 
-    private String vl_items;
+    private String[] vl_items;
     
 }
