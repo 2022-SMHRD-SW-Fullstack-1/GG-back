@@ -1,12 +1,13 @@
 package com.smhrd.gameus.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smhrd.gameus.mapper.FilterMapper;
-import com.smhrd.gameus.model.CategoryInfo;
 
 @Service
 public class FilterService {
@@ -14,10 +15,22 @@ public class FilterService {
 	@Autowired
 	FilterMapper filterMapper;
 	
-	public void filterMenu() {
-		List<CategoryInfo> position = filterMapper.positionFilter();
-		List<CategoryInfo> tier = filterMapper.tierFilter();
-
-		System.out.println(tier);
+	public HashMap<String, Object> filterMenu(String game) {
+		List<String> position = filterMapper.positionFilter(game);
+		System.out.println("포지션: "+position);
+		HashMap<String, Object> filterMenu = new HashMap<>();
+		filterMenu.put("position", position);
+		
+		if(game.equals("lostark")) {
+			List<String> dungeon = filterMapper.dungeonFilter(game);
+			filterMenu.put("dungeon", dungeon);
+			return filterMenu;
+			
+		}else {
+			List<String> tier = filterMapper.tierFilter(game);
+			filterMenu.put("tier", tier);
+			return filterMenu;
+		}
+		
 	}
 }

@@ -26,7 +26,6 @@ public class CalendarRestController {
 	
 	@GetMapping("/api/teamroom/calendar")
 	public List<CalendarInfo> viewAllCalendar() {
-		System.out.println(calendarService.viewAllCalendar());
 		return calendarService.viewAllCalendar();
 		
 	}

@@ -1,6 +1,7 @@
 package com.smhrd.gameus.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +18,11 @@ public class FilterRestController {
 	FilterService filterService;
 	
 	@GetMapping("/api/filter")
-	public void filterMenu(@RequestParam("game") String game) {
+	public Map<String, Object> filterMenu(@RequestParam("game") String game) {
 //		List<CategoryInfo>
-		System.out.println(game);
+		System.out.println("처음 받은 값: "+filterService.filterMenu(game));
 		
-		filterService.filterMenu();
+		return filterService.filterMenu(game); 
+		
 	}
 }
