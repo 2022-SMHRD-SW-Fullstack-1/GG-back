@@ -19,8 +19,6 @@ public class FilterRestController {
 	
 	@GetMapping("/api/filter")
 	public Map<String, Object> filterMenu(@RequestParam("game") String game) {
-//		List<CategoryInfo>
-		System.out.println("처음 받은 값: "+filterService.filterMenu(game));
 		
 		return filterService.filterMenu(game); 
 		

@@ -17,7 +17,6 @@ public class FilterService {
 	
 	public HashMap<String, Object> filterMenu(String game) {
 		List<String> position = filterMapper.positionFilter(game);
-		System.out.println("포지션: "+position);
 		HashMap<String, Object> filterMenu = new HashMap<>();
 		filterMenu.put("position", position);
 		
