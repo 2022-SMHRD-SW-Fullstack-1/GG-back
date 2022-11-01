@@ -5,4 +5,13 @@
 <insert id="teamAdd">
 	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'test', #{teamContent})
 </insert>
+
+<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
+	select * from team_info
+</select>
+
+<select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
+	select * from team_info where team_seq = #{team_seq}
+</select>
+
 </mapper>

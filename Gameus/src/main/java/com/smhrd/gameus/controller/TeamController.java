@@ -1,17 +1,27 @@
 package com.smhrd.gameus.controller;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+import com.smhrd.gameus.model.TeamInfo;
+import com.smhrd.gameus.model.UserInfo;
 import com.smhrd.gameus.service.TeamService;
 
 @RestController
 public class TeamController {
+	
+	Gson gson = new Gson();
 	
 	@Autowired
 	TeamService teamService;
@@ -29,13 +39,19 @@ public class TeamController {
 	
 	}
 	
-//	@GetMapping("/api/")
-//	public void teamJoin() {
-//		
+	@GetMapping("/api/allteam")
+    public List<TeamInfo> list(){
+        return teamService.selectAllTeam();
+	}
+	
+	@GetMapping("/api/teamcheck/{team_seq}")
+	public TeamInfo teamMore(@PathVariable("team_seq") int team_seq) {
+		return teamService.selectOneTeam(team_seq);
+	}
+	
+//	@PostMapping("/api/teamjoin")
+//	public void teamJoin(@RequestBody UserInfo user) {
+//		teamService.teamJoin(user);
 //	}
-//	
-//	@GetMapping("/api/")
-//	public void teamSearch() {
-//		
-//	}
+	
 }
