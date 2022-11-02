@@ -28,13 +28,6 @@ public class TeamController {
 	@PostMapping("/api/team")
 	public void teamAdd(@RequestBody Map<String, Object> newTeamInfo) {
 		teamService.teamAdd(newTeamInfo);
-//		HashMap<String, Object> resultMap = new HashMap<String, Object>();
-//		
-//		resultMap.put("result", "success");
-//		
-//		Gson gson = new Gson();
-//		
-//		String result = gson.toJson(resultMap);
 	
 	}
 	

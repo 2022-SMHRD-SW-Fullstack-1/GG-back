@@ -26,7 +26,7 @@
 </select>
 
 <select id="selectTm" resultType="int">
-	select count(tm_seq) from team_member where team_seq = #{team_seq}
+	select count(tm_seq) from team_member where team_seq = #{team_seq} and confirm_yn = 'y'
 </select>
 
 </mapper>
