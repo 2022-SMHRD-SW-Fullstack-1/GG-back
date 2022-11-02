@@ -12,9 +12,11 @@ public interface TeamMapper {
 
 	public void teamAdd(Map<String, Object> newTeamInfo);
 	
+	public void teamCap(Map<String, Object> newTeamInfo);
+	
 	public List<TeamInfo> selectAllTeam();
 	
 	public TeamInfo selectOneTeam(int team_seq);
 	
-//	public void teamJoin(UserInfo user);
+	public void teamJoin(Map<String, Object> tJoin);
 }

@@ -18,6 +18,7 @@ public class TeamService {
 	
 	public void teamAdd(Map<String, Object> newTeamInfo) {
 		teamMapper.teamAdd(newTeamInfo);
+		teamMapper.teamCap(newTeamInfo);
 	}
 	
 	public List<TeamInfo>selectAllTeam(){
@@ -28,8 +29,8 @@ public class TeamService {
 		return teamMapper.selectOneTeam(team_seq);
 	}
 	
-//	public void teamJoin(UserInfo user) {
-//		teamMapper.teamJoin(user);
-//	}
+	public void teamJoin(Map<String, Object> tJoin) {
+		teamMapper.teamJoin(tJoin);
+	}
 	
 }

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.smhrd.gameus.model.TeamInfo;
-import com.smhrd.gameus.model.UserInfo;
 import com.smhrd.gameus.service.TeamService;
 
 @RestController
@@ -49,9 +47,9 @@ public class TeamController {
 		return teamService.selectOneTeam(team_seq);
 	}
 	
-//	@PostMapping("/api/teamjoin")
-//	public void teamJoin(@RequestBody UserInfo user) {
-//		teamService.teamJoin(user);
-//	}
+	@PostMapping("/api/teamjoin")
+	public void teamJoin(@RequestBody Map<String, Object> tJoin) {
+		teamService.teamJoin(tJoin);
+	}
 	
 }

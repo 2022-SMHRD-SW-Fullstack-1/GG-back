@@ -2,8 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
-<insert id="teamAdd">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'test', #{teamContent})
+<insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent})
+</insert>
+
+<insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
+<selectKey resultType="int" keyProperty="team_seq" order="BEFORE">
+	select max(team_seq) from team_info
+</selectKey>
+	insert into team_member values(null, #{team_seq}, 'user_id 055', now(), 'y')
+</insert>
+
+<insert id="teamJoin">
+	insert into team_member values(null, #{team_seq}, 'user_id 020', now(), 'n')
 </insert>
 
 <select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
