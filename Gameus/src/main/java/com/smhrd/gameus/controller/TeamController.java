@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.smhrd.gameus.model.TeamInfo;
+import com.smhrd.gameus.model.TeamMember;
 import com.smhrd.gameus.service.TeamService;
 
 @RestController
@@ -43,8 +44,18 @@ public class TeamController {
 	}
 	
 	@GetMapping("/api/teamcheck/{team_seq}")
-	public TeamInfo teamMore(@PathVariable("team_seq") int team_seq) {
-		return teamService.selectOneTeam(team_seq);
+	public String teamMore(@PathVariable("team_seq") int team_seq) {
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("selectTm",teamService.selectTm(team_seq));
+		map.put("selectOneTeam", teamService.selectOneTeam(team_seq));
+		
+		Gson gson = new Gson();
+		
+		String result = gson.toJson(map);
+		
+		return result;
 	}
 	
 	@PostMapping("/api/teamjoin")

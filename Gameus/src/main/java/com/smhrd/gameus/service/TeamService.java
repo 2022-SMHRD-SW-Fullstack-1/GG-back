@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.smhrd.gameus.mapper.TeamMapper;
 import com.smhrd.gameus.model.TeamInfo;
+import com.smhrd.gameus.model.TeamMember;
 import com.smhrd.gameus.model.UserInfo;
 
 @Service
@@ -27,6 +28,10 @@ public class TeamService {
 	
 	public TeamInfo selectOneTeam(int team_seq) {
 		return teamMapper.selectOneTeam(team_seq);
+	}
+	
+	public int selectTm(int team_seq) {
+		return teamMapper.selectTm(team_seq);
 	}
 	
 	public void teamJoin(Map<String, Object> tJoin) {
