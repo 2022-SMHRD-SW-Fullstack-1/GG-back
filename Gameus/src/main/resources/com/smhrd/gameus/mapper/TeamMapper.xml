@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
+
+<insert id="teamAdd">
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'test', #{teamContent})
+</insert>
+
+<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
+	select * from team_info
+</select>
+
+<select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
+	select * from team_info where team_seq = #{team_seq}
+</select>
+
+</mapper>
