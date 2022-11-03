@@ -3,7 +3,7 @@
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
 <insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent})
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, 'idk', 'idk', #{teamGender}, #{teamAge})
 </insert>
 
 <insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
