@@ -24,4 +24,14 @@ public class TeamInfo {
     
     private String team_content;
     
+    private String team_game;
+    
+    private String team_td;
+    
+    private String team_position;
+    
+    private String team_gender;
+    
+    private String team_age;
+    
 }
