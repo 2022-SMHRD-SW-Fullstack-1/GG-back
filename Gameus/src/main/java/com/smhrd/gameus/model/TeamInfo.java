@@ -22,4 +22,8 @@ public class TeamInfo {
     // 팀 개설자 
     private String user_id;
     
+    // 팀 세부내용
+    private String team_content;
+
+    
 }

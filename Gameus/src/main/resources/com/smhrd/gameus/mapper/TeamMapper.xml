@@ -4,5 +4,10 @@
 	<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
 		select * from team_info 
 	</select>
+	
+	<select id="selectMyTeam" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from team_info ti, team_member tm where ti.team_seq = tm.team_seq and tm.applicant = #{applicant} and tm.confirm_yn =#{confirm_yn}
+	
+	</select>
 
 </mapper>

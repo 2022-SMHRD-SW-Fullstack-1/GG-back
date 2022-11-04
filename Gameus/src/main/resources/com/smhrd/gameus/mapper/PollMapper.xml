@@ -4,4 +4,27 @@
 	<insert id="newPoll" parameterType="com.smhrd.gameus.model.VotingListInfo">
 		insert into voting_list_info values (null, #{desc}, #{endtime}, 'test', 2, now(), #{options})
 	</insert>
+	
+	<select id="selectAllPoll" resultType="com.smhrd.gameus.model.VotingListInfo">
+		select * from voting_list_info order by vl_seq desc
+	</select>
+	
+	<select id="selectOnePoll" parameterType="java.util.HashMap" resultType="com.smhrd.gameus.model.VotingListInfo">
+		select * from voting_list_info where team_seq=#{team_seq} and vl_seq=#{vl_seq}
+	</select>
+	
+	<select id="selectRecentPoll" resultType="com.smhrd.gameus.model.VotingListInfo">
+		select * from voting_list_info where vl_seq=(select max(vl_seq) from voting_list_info)
+	</select>
+	
+	<select id="pollDetail" resultType="java.util.HashMap">
+		select vt_result, count(*) as vote from voting_info 
+		Group by vt_result, vl_seq  Having vl_seq = #{vl_seq}
+	</select>
+	
+	<insert id="voting">
+		insert into voting_info values (null, #{user_id}, #{vl_seq}, #{vt_result}, now())
+	</insert>
+	
+	
 </mapper>
