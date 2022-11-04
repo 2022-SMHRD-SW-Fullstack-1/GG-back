@@ -1,10 +1,12 @@
 package com.smhrd.gameus.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.TeamInfo;
 import com.smhrd.gameus.model.TeamMember;
 
@@ -22,4 +24,6 @@ public interface TeamMapper {
 	public int selectTm(int team_seq);
 	
 	public void teamJoin(Map<String, Object> tJoin);
+	
+	public List<CategoryInfo> teamGameSetting();
 }
