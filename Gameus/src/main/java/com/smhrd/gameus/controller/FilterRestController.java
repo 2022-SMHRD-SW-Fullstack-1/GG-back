@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +19,15 @@ public class FilterRestController {
 	FilterService filterService;
 	
 	@GetMapping("/api/filter")
-	public Map<String, Object> filterMenu(@RequestParam("game") String game) {
+	public List<CategoryInfo> filterMenu(@RequestParam("game") String game) {
 		
 		return filterService.filterMenu(game); 
 		
+	}
+	
+	@GetMapping("/api/teamsearch/filter")
+	public List<CategoryInfo> filterTeam(@RequestParam("id") List<String> categoryNum ) {
+		System.out.println(categoryNum);
+		return filterService.filterTeam(categoryNum);
 	}
 }

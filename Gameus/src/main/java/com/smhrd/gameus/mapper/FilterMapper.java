@@ -10,13 +10,9 @@ import com.smhrd.gameus.model.CategoryInfo;
 @Mapper
 public interface FilterMapper {
 	
-	@Select("select game_detail from category_info where game_name=#{game} and game_section='p'")
-	public List<String> positionFilter(String game);
-
-	@Select("select game_detail from category_info where game_name=#{game} and game_section='t'")
-	public List<String> tierFilter(String game);
-
-	@Select("select game_detail from category_info where game_name=#{game} and game_section='d'")
-	public List<String> dungeonFilter(String game);
+	@Select("select * from category_info where game_name=#{game}")
+	public List<CategoryInfo> gameFilter(String game);
+	
+	public List<CategoryInfo> filterTeam(List<String> categoryNum);
 	
 }

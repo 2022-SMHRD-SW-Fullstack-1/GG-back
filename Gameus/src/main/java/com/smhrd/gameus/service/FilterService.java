@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smhrd.gameus.mapper.FilterMapper;
+import com.smhrd.gameus.model.CategoryInfo;
 
 @Service
 public class FilterService {
@@ -15,21 +16,13 @@ public class FilterService {
 	@Autowired
 	FilterMapper filterMapper;
 	
-	public HashMap<String, Object> filterMenu(String game) {
-		List<String> position = filterMapper.positionFilter(game);
-		HashMap<String, Object> filterMenu = new HashMap<>();
-		filterMenu.put("position", position);
+	public List<CategoryInfo> filterMenu(String game) {
+		return filterMapper.gameFilter(game);
 		
-		if(game.equals("lostark")) {
-			List<String> dungeon = filterMapper.dungeonFilter(game);
-			filterMenu.put("dungeon", dungeon);
-			return filterMenu;
-			
-		}else {
-			List<String> tier = filterMapper.tierFilter(game);
-			filterMenu.put("tier", tier);
-			return filterMenu;
-		}
-		
+	}
+	
+	public List<CategoryInfo> filterTeam(List<String> categoryNum) {
+		System.out.println(filterMapper.filterTeam(categoryNum));
+		return filterMapper.filterTeam(categoryNum);
 	}
 }
