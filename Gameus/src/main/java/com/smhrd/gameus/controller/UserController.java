@@ -50,19 +50,15 @@ public class UserController {
 		} else {
 			return "fail";//로그인 실패
 		}
-	}
-		
-	}
 
+	}	
 		
-		
-
 	
-
-	//@GetMapping("/api/logout")
-	//public String logout(HttpSession session) {
-		//session.removeAttribute("loginM");
-		//return "redirect:/";
+	@GetMapping("/api/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginM");
+		return "redirect:/";
+	}}
 	//}
 	
 //	 @PostMapping("/login")
