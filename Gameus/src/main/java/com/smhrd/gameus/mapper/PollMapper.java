@@ -23,4 +23,6 @@ public interface PollMapper {
 	
 	public void voting(HashMap<String,Object> map);
 	
+	public void pollSetting(HashMap<String,Object> map);
+	
 }

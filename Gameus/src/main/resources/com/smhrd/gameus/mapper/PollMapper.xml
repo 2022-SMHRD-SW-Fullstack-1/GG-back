@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.PollMapper">
-	<insert id="newPoll" parameterType="com.smhrd.gameus.model.VotingListInfo">
-		insert into voting_list_info values (null, #{desc}, #{endtime}, 'test', 2, now(), #{options})
+	<insert id="newPoll" parameterType="com.smhrd.gameus.model.VotingListInfo" useGeneratedKeys="true" keyProperty="post_num">
+		insert into voting_list_info values (null, #{desc}, #{endtime}, #{user_id}, #{team_seq}, now(), #{options})
 	</insert>
 	
 	<select id="selectAllPoll" resultType="com.smhrd.gameus.model.VotingListInfo">
@@ -26,5 +26,9 @@
 		insert into voting_info values (null, #{user_id}, #{vl_seq}, #{vt_result}, now())
 	</insert>
 	
+	<insert id="pollSetting">
+			insert into voting_info values(null, #{user_id}, LAST_INSERT_ID(),  
+			<foreach collection="list" item="item" separator=",">#{item.items}</foreach>, now())
+	</insert>
 	
 </mapper>

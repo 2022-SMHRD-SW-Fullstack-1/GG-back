@@ -21,6 +21,7 @@ public class PollService {
 	//새 투표 생성
 	public void newPoll(HashMap <String,Object> map) {
 		pollMapper.newPoll(map);
+		pollMapper.pollSetting(map);
 	}
 	
 	//전체 투표 목록 가져오기
