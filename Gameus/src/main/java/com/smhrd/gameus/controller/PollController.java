@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.smhrd.gameus.model.VotingInfo;
 import com.smhrd.gameus.model.VotingListInfo;
 import com.smhrd.gameus.service.PollService;
@@ -29,18 +30,18 @@ public class PollController {
 	//새 투표 생성
 	@PostMapping("/api/newpoll")
     public String newPoll (@RequestBody HashMap<String, Object> map) {
-	
-		Gson gson = new Gson();
 		HashMap<String, Object> item = new HashMap<String, Object> (map);
 		String option = (String) map.get("options");
 //		String[] optionList = option.split(",");
 		System.out.println(option);
+        Gson gson = new Gson();
         String[] optionList = gson.fromJson(option, String[].class);
+
         item.put("items", optionList);
 		System.out.println(item);
 				 
 		pollService.newPoll(item);
-
+		pollService.pollSetting(optionList);
 		
 		return "새 투표 생성";
 	}
@@ -80,5 +81,15 @@ public class PollController {
 
 	}
 	
+	@PostMapping("/api/pollresult")
+	public String pollResult(@RequestBody HashMap<String, Object> map){
+	
+		Gson gson = new Gson();
+		String option = (String) map.get("options");
+		System.out.println(option);
+        String[] optionList = gson.fromJson(option, String[].class);
+        System.out.println(optionList);
+		return pollService.pollResult(optionList);
+	}
 	
 }

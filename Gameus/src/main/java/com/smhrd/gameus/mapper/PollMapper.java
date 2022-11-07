@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.model.VotingInfo;
 import com.smhrd.gameus.model.VotingListInfo;
@@ -23,6 +25,8 @@ public interface PollMapper {
 	
 	public void voting(HashMap<String,Object> map);
 	
-	public void pollSetting(HashMap<String,Object> map);
+	public void pollSetting(String[] optionList);
 	
+	public String pollResult (String [] optionList);
+
 }

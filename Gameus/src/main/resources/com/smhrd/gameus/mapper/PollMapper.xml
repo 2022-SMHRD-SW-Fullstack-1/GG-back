@@ -18,8 +18,10 @@
 	</select>
 	
 	<select id="pollDetail" resultType="java.util.HashMap">
-		select vt_result, count(*) as vote from voting_info 
-		Group by vt_result, vl_seq  Having vl_seq = #{vl_seq}
+		select @ROWNUM := @ROWNUM + 1 as id, vt_result as text, count(*) as vote 
+		from voting_info, (select @ROWNUM :=0 ) as id 
+		Group by vt_result, vl_seq  
+		Having vl_seq = #{vl_seq}
 	</select>
 	
 	<insert id="voting">
@@ -27,8 +29,16 @@
 	</insert>
 	
 	<insert id="pollSetting">
-			insert into voting_info values(null, #{user_id}, LAST_INSERT_ID(),  
-			<foreach collection="list" item="item" separator=",">#{item.items}</foreach>, now())
+			insert into voting_info values <foreach collection="optionList" index="index" item="item" separator=","> (null,'test',LAST_INSERT_ID(),#{item},now()) </foreach>
 	</insert>
+	
+	<select id="pollResult">
+	    select
+        <foreach collection="optionList" item="type" index="index" open="[" close="]" separator=",">
+            count(case when vt_result = #{type[index]} and vl_seq = 42 then 1 end)
+        </foreach>    
+    		FROM voting_info 
+	</select>
+	
 	
 </mapper>
