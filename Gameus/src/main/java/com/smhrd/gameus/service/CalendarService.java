@@ -19,7 +19,7 @@ public class CalendarService {
 		calendarMapper.addCalendar(schedule);
 	}
 	
-	public List<CalendarInfo> viewAllCalendar() {
-		return calendarMapper.viewAllCalendar();
+	public List<CalendarInfo> viewAllCalendar(String team_seq) {
+		return calendarMapper.viewAllCalendar(team_seq);
 	}
 }

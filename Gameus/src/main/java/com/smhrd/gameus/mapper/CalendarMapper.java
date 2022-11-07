@@ -12,9 +12,9 @@ import com.smhrd.gameus.model.CalendarInfo;
 @Mapper
 public interface CalendarMapper {
 	
-	@Insert("insert into calendar_info values(null, #{start}, #{end}, #{title}, null, 'user_id 001', 1)")
+	@Insert("insert into calendar_info values(null, #{start}, #{end}, #{title}, null, 'user_id 001', #{team_seq})")
 	public void addCalendar(Map<String, Object> schedule);
 	
-	@Select("select * from calendar_info where team_seq=1")
-	public List<CalendarInfo> viewAllCalendar();
+	@Select("select * from calendar_info where team_seq=#{team_seq}")
+	public List<CalendarInfo> viewAllCalendar(String team_seq);
 }

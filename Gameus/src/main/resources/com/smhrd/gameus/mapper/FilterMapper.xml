@@ -10,12 +10,4 @@
 			</foreach>
 		)
 	</select>
-
-	<select resultType="com.smhrd.gameus.model.CategoryInfo" id="filterTeam">
-		select *from category_infowhere category_seq in( 
-			<foreach separator="," item="item" collection="list">
-				#{item} 
-			</foreach>
-		)
-	</select>
 </mapper>
