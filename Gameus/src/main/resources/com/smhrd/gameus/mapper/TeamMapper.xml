@@ -3,7 +3,7 @@
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
 <insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, 'idk', 'idk', #{teamGender}, #{teamAge})
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
 </insert>
 
 <insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
@@ -27,6 +27,14 @@
 
 <select id="selectTm" resultType="int">
 	select count(tm_seq) from team_member where team_seq = #{team_seq} and confirm_yn = 'y'
+</select>
+
+<select id="teamGameSetting" resultType="com.smhrd.gameus.model.CategoryInfo">
+	select * from category_info
+</select>
+
+<select resultType="java.util.HashMap" id="selectMyTeam" parameterType="java.util.HashMap">
+	select * from team_info ti, team_member tm where ti.team_seq = tm.team_seq and tm.applicant = #{applicant} and tm.confirm_yn =#{confirm_yn}
 </select>
 
 </mapper>

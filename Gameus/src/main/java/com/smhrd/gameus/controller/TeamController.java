@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.TeamInfo;
 import com.smhrd.gameus.model.TeamMember;
 import com.smhrd.gameus.service.TeamService;
@@ -28,7 +29,6 @@ public class TeamController {
 	@PostMapping("/api/team")
 	public void teamAdd(@RequestBody Map<String, Object> newTeamInfo) {
 		teamService.teamAdd(newTeamInfo);
-	
 	}
 	
 	@GetMapping("/api/allteam")
@@ -54,6 +54,17 @@ public class TeamController {
 	@PostMapping("/api/teamjoin")
 	public void teamJoin(@RequestBody Map<String, Object> tJoin) {
 		teamService.teamJoin(tJoin);
+	}
+	
+	@GetMapping("/api/gamesetting")
+	public List<CategoryInfo> teamGameSetting() {
+		return teamService.teamGameSetting();
+	}
+	
+	// 내 팀 목록 보기
+	@PostMapping("/api/myteam")
+	public List<TeamInfo> myteam(@RequestBody HashMap<String, Object> map) {
+		return teamService.selectMyTeam(map);
 	}
 	
 }
