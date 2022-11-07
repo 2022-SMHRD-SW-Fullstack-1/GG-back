@@ -44,4 +44,8 @@ public class TeamService {
 		return teamMapper.teamGameSetting();
 	}
 	
+	public List<TeamInfo> selectMyTeam(HashMap<String, Object> map) {
+		return teamMapper.selectMyTeam(map);
+	}
+	
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.gameus.mapper.ChatMapper">
+
+<insert id="sendMessage" parameterType="com.smhrd.gameus.model.ChattingInfo" >
+	insert into chatting_info values (null, #{talker}, #{msg}, now(), #{cr_seq})
+</insert>
+
+<select id="receiveMessage" resultType="java.util.HashMap">
+	select * from chatting_info where cr_seq=#{cr_seq}
+</select>
+
+</mapper>

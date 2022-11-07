@@ -19,6 +19,8 @@ public interface TeamMapper {
 	
 	public List<TeamInfo> selectAllTeam();
 	
+	public List<TeamInfo> selectMyTeam(HashMap<String,Object> map);
+	
 	public TeamInfo selectOneTeam(int team_seq);
 	
 	public int selectTm(int team_seq);

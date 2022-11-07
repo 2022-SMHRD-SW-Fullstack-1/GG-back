@@ -61,4 +61,10 @@ public class TeamController {
 		return teamService.teamGameSetting();
 	}
 	
+	// 내 팀 목록 보기
+	@PostMapping("/api/myteam")
+	public List<TeamInfo> myteam(@RequestBody HashMap<String, Object> map) {
+		return teamService.selectMyTeam(map);
+	}
+	
 }
