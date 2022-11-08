@@ -3,18 +3,18 @@
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
 <insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, #{user_id}, #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
 </insert>
 
 <insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
 <selectKey resultType="int" keyProperty="team_seq" order="BEFORE">
 	select max(team_seq) from team_info
 </selectKey>
-	insert into team_member values(null, #{team_seq}, 'user_id 055', now(), 'y')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'y')
 </insert>
 
 <insert id="teamJoin" parameterType="com.smhrd.gameus.model.TeamMember">
-	insert into team_member values(null, #{team_seq}, 'user_id 020', now(), 'n')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'n')
 </insert>
 
 <select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">

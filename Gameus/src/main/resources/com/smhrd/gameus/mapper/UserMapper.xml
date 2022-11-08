@@ -2,6 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.UserMapper">
 
+	<insert id="signupAdd">
+		insert into user_info (user_id, user_pw, user_nick, user_birthdate,
+		user_gender, user_joindate) values(#{email}, #{password}, #{username}, #{age}, #{gender}, #{joindate})
+	</insert>
 
-
+	<select id="loginMember" resultType="String">
+		select * from user_info where user_id=#{id} and user_pw=#{pw}
+	</select>
+	
+	<select id="notiList" resultType="com.smhrd.gameus.model.NotificationInfo">
+		select * from notification_info where user_id=#{user_id} order by noti_seq desc
+	</select>
+	
 </mapper>
