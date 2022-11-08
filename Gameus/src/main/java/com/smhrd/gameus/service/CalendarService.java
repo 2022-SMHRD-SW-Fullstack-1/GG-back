@@ -15,11 +15,12 @@ public class CalendarService {
 	@Autowired
 	CalendarMapper calendarMapper;
 	
-	public void addCalendar(Map<String, Object> schedule) {
+	public void addCalendar(String team_seq, Map<String, Object> schedule) {
+		schedule.put("team_seq", team_seq);
 		calendarMapper.addCalendar(schedule);
 	}
 	
-	public List<CalendarInfo> viewAllCalendar() {
-		return calendarMapper.viewAllCalendar();
+	public List<CalendarInfo> viewAllCalendar(String team_seq) {
+		return calendarMapper.viewAllCalendar(team_seq);
 	}
 }

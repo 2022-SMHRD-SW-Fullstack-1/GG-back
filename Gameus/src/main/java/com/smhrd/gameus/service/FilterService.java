@@ -22,7 +22,7 @@ public class FilterService {
 	}
 	
 	public List<CategoryInfo> filterTeam(List<String> categoryNum) {
-		
+		System.out.println(filterMapper.filterTeam(categoryNum));
 		return filterMapper.filterTeam(categoryNum);
 	}
 }

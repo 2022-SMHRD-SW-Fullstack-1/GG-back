@@ -15,4 +15,8 @@
 		select * from notification_info where user_id=#{user_id} order by noti_seq desc
 	</select>
 	
+	<delete id="delNoti" parameterType="com.smhrd.gameus.model.NotificationInfo">
+		delete from notification_info where user_id=#{user_id} and noti_seq=#{noti_seq}
+	</delete>
+	
 </mapper>

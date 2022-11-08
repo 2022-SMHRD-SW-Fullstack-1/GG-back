@@ -50,9 +50,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/api/notification")
-	public List<NotificationInfo> notiList(@RequestBody Map<String,Object>id){
+	public List<NotificationInfo> notiList(@RequestBody Map<String, Object> id){
 		return userService.notiList(id);
 	}
 	
+	@PostMapping("/api/delnoti")
+	public List<NotificationInfo> delNoti(@RequestBody Map<String, Object> delNoti){
+		userService.delNoti(delNoti);
+		return userService.notiList(delNoti);
 	}
+	
+}
 

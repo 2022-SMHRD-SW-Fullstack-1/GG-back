@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.FilterMapper">
-
-<select resultType="com.smhrd.gameus.model.CategoryInfo" id="filterTeam">
-	select *from category_infowhere category_seq in( 
-	<foreach separator="," item="item" collection="list">#{item} </foreach>
-	)
-</select>
+	<select id="filterTeam" resultType="com.smhrd.gameus.model.CategoryInfo">
+		select *
+		from category_info
+		where category_seq in(
+			<foreach collection="list" item="item" separator=",">
+					#{item}
+			</foreach>
+		)
+	</select>
 </mapper>

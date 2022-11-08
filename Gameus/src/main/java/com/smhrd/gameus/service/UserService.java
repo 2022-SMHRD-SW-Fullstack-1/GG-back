@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.mapper.UserMapper;
 import com.smhrd.gameus.model.NotificationInfo;
@@ -26,5 +27,9 @@ public class UserService {
 	
 	public List<NotificationInfo> notiList(Map<String,Object> id){
 		return userMapper.notiList(id);
+	}
+	
+	public void delNoti(Map<String, Object> delNoti){
+		userMapper.delNoti(delNoti);
 	}
 }
