@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.smhrd.gameus.model.UserInfo;
 import com.smhrd.gameus.service.UserService;
 
-@Controller
+@RestController
 public class UserController {
 
 	

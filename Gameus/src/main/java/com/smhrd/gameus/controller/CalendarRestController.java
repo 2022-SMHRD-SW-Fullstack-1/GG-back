@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +21,14 @@ public class CalendarRestController {
 	@Autowired
 	CalendarService calendarService;
 	
-	@PostMapping("/api/teamroom/calendar")
-	public void addCalendar(@RequestBody Map<String, Object> schedule) {
-		calendarService.addCalendar(schedule);
+	@PostMapping("/api/teamroom/{team_seq}/calendar")
+	public void addCalendar(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> schedule) {
+		System.out.println(schedule);
+		calendarService.addCalendar(team_seq, schedule);
 	}
 	
-	@GetMapping("/api/teamroom/calendar")
-	public List<CalendarInfo> viewAllCalendar(@RequestParam("team_seq")String team_seq) {
+	@GetMapping("/api/teamroom/{team_seq}/calendar")
+	public List<CalendarInfo> viewAllCalendar(@PathVariable("team_seq")String team_seq) {
 		return calendarService.viewAllCalendar(team_seq);
 		
 	}

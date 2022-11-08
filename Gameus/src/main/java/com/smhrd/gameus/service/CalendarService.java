@@ -15,7 +15,8 @@ public class CalendarService {
 	@Autowired
 	CalendarMapper calendarMapper;
 	
-	public void addCalendar(Map<String, Object> schedule) {
+	public void addCalendar(String team_seq, Map<String, Object> schedule) {
+		schedule.put("team_seq", team_seq);
 		calendarMapper.addCalendar(schedule);
 	}
 	
