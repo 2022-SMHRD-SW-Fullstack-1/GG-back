@@ -20,9 +20,7 @@ public class FilterRestController {
 	
 	@GetMapping("/api/filter")
 	public List<CategoryInfo> filterMenu(@RequestParam("game") String game) {
-		System.out.println(game);
 		return filterService.filterMenu(game); 
-		
 	}
 	
 	@GetMapping("/api/teamsearch/filter")

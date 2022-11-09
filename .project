@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>GG-back0</name>
+=======
+<<<<<<< HEAD
+	<name>GG-back</name>
+=======
+	<name>GG-back2</name>
+>>>>>>> branch 'jh_back' of https://github.com/2022-SMHRD-SW-Fullstack-1/GG-back.git
+>>>>>>> branch 'ignacioback' of https://github.com/2022-SMHRD-SW-Fullstack-1/GG-back.git
 	<comment></comment>
 	<projects>
 	</projects>

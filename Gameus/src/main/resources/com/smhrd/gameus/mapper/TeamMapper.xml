@@ -3,18 +3,18 @@
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
 <insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, #{user_id}, #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
 </insert>
 
 <insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
 <selectKey resultType="int" keyProperty="team_seq" order="BEFORE">
 	select max(team_seq) from team_info
 </selectKey>
-	insert into team_member values(null, #{team_seq}, 'user_id 055', now(), 'y')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'y')
 </insert>
 
 <insert id="teamJoin" parameterType="com.smhrd.gameus.model.TeamMember">
-	insert into team_member values(null, #{team_seq}, 'user_id 020', now(), 'n')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'n')
 </insert>
 
 <select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
@@ -35,6 +35,10 @@
 
 <select resultType="java.util.HashMap" id="selectMyTeam" parameterType="java.util.HashMap">
 	select * from team_info ti, team_member tm where ti.team_seq = tm.team_seq and tm.applicant = #{applicant} and tm.confirm_yn =#{confirm_yn}
+</select>
+
+<select id="isJoined" parameterType="com.smhrd.gameus.model.TeamMember" resultType="String">
+	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
 </select>
 
 </mapper>

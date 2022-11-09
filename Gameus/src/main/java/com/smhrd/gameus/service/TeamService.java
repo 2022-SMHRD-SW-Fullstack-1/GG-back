@@ -28,16 +28,17 @@ public class TeamService {
 		return teamMapper.selectAllTeam();
 	}
 	
-	public TeamInfo selectOneTeam(int team_seq) {
-		return teamMapper.selectOneTeam(team_seq);
+	public TeamInfo selectOneTeam(HashMap<String, Object> map) {
+		return teamMapper.selectOneTeam(map);
 	}
 	
-	public int selectTm(int team_seq) {
-		return teamMapper.selectTm(team_seq);
+	public int selectTm(HashMap<String, Object> map) {
+		return teamMapper.selectTm(map);
 	}
 	
 	public void teamJoin(Map<String, Object> tJoin) {
 		teamMapper.teamJoin(tJoin);
+		
 	}
 	
 	public List<CategoryInfo> teamGameSetting() {
@@ -47,5 +48,13 @@ public class TeamService {
 	public List<TeamInfo> selectMyTeam(HashMap<String, Object> map) {
 		return teamMapper.selectMyTeam(map);
 	}
+
+	public String isJoined(HashMap<String, Object> tJoin) {
+		return teamMapper.isJoined(tJoin);
+	}
+	
+//	public String isJoined(String yn) {
+//		return teamMapper.isJoined(yn);
+//	}
 	
 }
