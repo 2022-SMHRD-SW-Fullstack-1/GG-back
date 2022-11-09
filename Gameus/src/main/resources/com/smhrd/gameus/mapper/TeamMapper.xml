@@ -37,4 +37,8 @@
 	select * from team_info ti, team_member tm where ti.team_seq = tm.team_seq and tm.applicant = #{applicant} and tm.confirm_yn =#{confirm_yn}
 </select>
 
+<select id="isJoined" parameterType="com.smhrd.gameus.model.TeamMember" resultType="String">
+	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
+</select>
+
 </mapper>
