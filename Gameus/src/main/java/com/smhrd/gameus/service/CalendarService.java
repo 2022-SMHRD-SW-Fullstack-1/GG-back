@@ -23,4 +23,8 @@ public class CalendarService {
 	public List<CalendarInfo> viewAllCalendar(String team_seq) {
 		return calendarMapper.viewAllCalendar(team_seq);
 	}
+	
+	public void updateCalendar(Map<String, Object> schedule) {
+		calendarMapper.updateCalendar(schedule);
+	}
 }
