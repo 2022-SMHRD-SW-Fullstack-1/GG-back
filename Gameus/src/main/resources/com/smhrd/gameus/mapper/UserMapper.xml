@@ -8,8 +8,15 @@
 	</insert>
 
 	<select id="loginMember" resultType="String">
-		select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
-		
+		select * from user_info where user_id=#{id} and user_pw=#{pw}
 	</select>
-
+	
+	<select id="notiList" resultType="com.smhrd.gameus.model.NotificationInfo">
+		select * from notification_info where user_id=#{user_id} order by noti_seq desc
+	</select>
+	
+	<delete id="delNoti" parameterType="com.smhrd.gameus.model.NotificationInfo">
+		delete from notification_info where user_id=#{user_id} and noti_seq=#{noti_seq}
+	</delete>
+	
 </mapper>

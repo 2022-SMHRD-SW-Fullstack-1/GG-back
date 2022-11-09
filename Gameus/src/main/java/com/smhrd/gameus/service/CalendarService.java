@@ -27,4 +27,8 @@ public class CalendarService {
 	public void updateCalendar(Map<String, Object> schedule) {
 		calendarMapper.updateCalendar(schedule);
 	}
+	
+	public void deleteCalendar(String cal_seq) {
+		calendarMapper.deleteCalendar(cal_seq);
+	}
 }

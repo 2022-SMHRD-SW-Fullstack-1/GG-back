@@ -19,13 +19,15 @@ public interface TeamMapper {
 	
 	public List<TeamInfo> selectAllTeam();
 	
-	public List<TeamInfo> selectMyTeam(HashMap<String,Object> map);
+	public List<TeamInfo> selectMyTeam(HashMap<String, Object> map);
 	
-	public TeamInfo selectOneTeam(int team_seq);
+	public TeamInfo selectOneTeam(HashMap<String, Object> map);
 	
-	public int selectTm(int team_seq);
+	public int selectTm(HashMap<String, Object> map);
 	
 	public void teamJoin(Map<String, Object> tJoin);
 	
 	public List<CategoryInfo> teamGameSetting();
+	
+	public String isJoined(HashMap<String, Object> tJoin);
 }
