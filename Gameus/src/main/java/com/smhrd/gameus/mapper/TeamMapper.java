@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.TeamInfo;
@@ -30,4 +31,8 @@ public interface TeamMapper {
 	public List<CategoryInfo> teamGameSetting();
 	
 	public String isJoined(HashMap<String, Object> tJoin);
+	
+	public void capNoti(HashMap<String, Object> tJoin);
+	
+	public String notiTeamName(Map<String, Object> team_seq);
 }

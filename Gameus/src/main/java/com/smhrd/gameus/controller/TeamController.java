@@ -80,6 +80,7 @@ public class TeamController {
 	@PostMapping("/api/teamjoin")
 	public String teamJoin(@RequestBody HashMap<String, Object> tJoin) {
 		teamService.teamJoin(tJoin);
+		teamService.capNoti(tJoin);
 		return teamService.isJoined(tJoin);
 	}
 	
@@ -91,9 +92,14 @@ public class TeamController {
 	// 내 팀 목록 보기
 	@PostMapping("/api/myteam")
 	public List<TeamInfo> myteam(@RequestBody HashMap<String, Object> map) {
+		System.out.println(map);
 		return teamService.selectMyTeam(map);
 	}
 	
+	@PostMapping("/api/notiteamname")
+	public String notiTeamName(@RequestBody Map<String, Object> team_seq) {
+		return teamService.notiTeamName(team_seq);
+	}
 
 	
 }

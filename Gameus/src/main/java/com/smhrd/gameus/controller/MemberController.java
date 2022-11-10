@@ -18,7 +18,7 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 			
-	@GetMapping("/api/teamsetting{team_seq}")
+	@GetMapping("/api/teamsetting/{team_seq}")
 	public List<HashMap<String, Object>> selectAllTm(@PathVariable("team_seq") int num) {
 		return memberService.selectAllTm(num);
 	}

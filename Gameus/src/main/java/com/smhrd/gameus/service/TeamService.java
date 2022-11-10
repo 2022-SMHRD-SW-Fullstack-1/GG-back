@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.mapper.TeamMapper;
 import com.smhrd.gameus.model.CategoryInfo;
@@ -51,6 +52,14 @@ public class TeamService {
 
 	public String isJoined(HashMap<String, Object> tJoin) {
 		return teamMapper.isJoined(tJoin);
+	}
+	
+	public void capNoti(HashMap<String, Object> tJoin) {
+		teamMapper.capNoti(tJoin);
+	}
+	
+	public String notiTeamName(Map<String, Object> team_seq) {
+		return teamMapper.notiTeamName(team_seq);
 	}
 	
 //	public String isJoined(String yn) {

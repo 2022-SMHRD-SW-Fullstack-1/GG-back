@@ -41,4 +41,12 @@
 	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
 </select>
 
+<insert id="capNoti">
+	insert into notification_info values(null, (select user_id from team_info where team_seq=#{team_seq}), '가입 신청이 왔습니다!', now(), now(), #{team_seq})
+</insert>
+
+<select id="notiTeamName" resultType="String">
+	select team_name from team_info where team_seq=#{team_seq}
+</select>
+
 </mapper>

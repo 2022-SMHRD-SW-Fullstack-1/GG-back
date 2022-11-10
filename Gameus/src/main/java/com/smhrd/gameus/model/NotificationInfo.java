@@ -22,4 +22,6 @@ public class NotificationInfo {
     // 알림 확인 시간 
     private Date read_time;
     
+    private int team_seq;
+    
 }
