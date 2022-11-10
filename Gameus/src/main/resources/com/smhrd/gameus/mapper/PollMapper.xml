@@ -19,7 +19,11 @@
 </select>
 
 <select id="pollDetail" resultType="java.util.HashMap">
-	select @ROWNUM := @ROWNUM + 1 as id, vt_result as text, count(*) as vote from voting_info, (select @ROWNUM :=0 ) as id Group by vt_result, vl_seq Having vl_seq = #{vl_seq}
+	select vt_result as text, count(*) as vote, ((select count(*) from voting_info where vl_seq = #{vl_seq})-(select count(DISTINCT vt_result)  from voting_info where vl_seq=#{vl_seq})) as sum
+		from voting_info
+		Group by vt_result, vl_seq  
+		Having vl_seq = #{vl_seq}
+
 </select>
 
 <insert id="voting">

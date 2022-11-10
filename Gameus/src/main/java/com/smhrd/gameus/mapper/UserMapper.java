@@ -17,4 +17,7 @@ public interface UserMapper {
 	public List<NotificationInfo> notiList(Map<String,Object> id);
 	
 	public void delNoti(Map<String,Object> delNoti);
+	
+	public void setConfirmNoti(Map<String, Object> map);
+	
 }

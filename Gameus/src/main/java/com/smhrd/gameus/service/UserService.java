@@ -32,4 +32,8 @@ public class UserService {
 	public void delNoti(Map<String, Object> delNoti){
 		userMapper.delNoti(delNoti);
 	}
+	
+	public void setConfirmNoti(Map<String, Object> map) {
+		userMapper.setConfirmNoti(map);
+	}
 }

@@ -19,4 +19,8 @@
 		delete from notification_info where user_id=#{user_id} and noti_seq=#{noti_seq}
 	</delete>
 	
+	<insert id="setConfirmNoti">
+		insert into notification_info values(null, #{user_id}, '가입 신청 승인 완료', now(), now(), #{team_seq})
+	</insert>
+	
 </mapper>
