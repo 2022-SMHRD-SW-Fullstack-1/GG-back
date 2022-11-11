@@ -24,9 +24,10 @@ public class CalendarRestController {
 	CalendarService calendarService;
 	
 	@PostMapping("/api/teamroom/{team_seq}/calendar")
-	public void addCalendar(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> schedule) {
-		System.out.println(schedule);
+	public String addCalendar(@PathVariable("team_seq")int team_seq, @RequestBody Map<String, Object> schedule) {
+		schedule.put("team_seq", team_seq);
 		calendarService.addCalendar(team_seq, schedule);
+		return schedule.get("calId").toString();
 	}
 	
 	@GetMapping("/api/teamroom/{team_seq}/calendar")

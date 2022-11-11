@@ -15,9 +15,8 @@ import com.smhrd.gameus.model.CalendarInfo;
 public interface CalendarMapper {
 
 
-	@Insert("insert into calendar_info values(null, #{start}, #{end}, #{title}, null, #{groupId}, #{team_seq})")
 	public void addCalendar(Map<String, Object> schedule);
-
+	
 	@Select("select * from calendar_info where team_seq=#{team_seq}")
 	public List<CalendarInfo> viewAllCalendar(String team_seq);
 
