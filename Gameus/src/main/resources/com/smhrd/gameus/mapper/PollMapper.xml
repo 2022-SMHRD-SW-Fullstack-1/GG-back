@@ -40,7 +40,7 @@
 <select id="pollResult">
 	select
 	<foreach collection="optionList" item="type" index="index" open="[" close="]" separator=",">
-		count(case when vt_result = #{type[index]} and vl_seq = 42 then 1 end)
+		count(case when vt_result = #{type[index]} and vl_seq = #{vl_seq} then 1 end)
 	</foreach>
 	FROM voting_info
 </select>

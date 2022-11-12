@@ -19,7 +19,7 @@ public class ChattingInfo {
     // 발화 시간 
     private Date msg_time;
 
-    // 방 순번 
-    private int cr_seq;
+    // 팀 순번 
+    private int team_seq;
     
 }

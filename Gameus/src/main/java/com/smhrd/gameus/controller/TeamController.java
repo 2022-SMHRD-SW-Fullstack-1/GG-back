@@ -94,6 +94,12 @@ public class TeamController {
 		return teamService.selectMyTeam(map);
 	}
 	
+	@PostMapping("/api/teamaccess/{team_seq}")
+	public int teamAccess(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> map) {
+		map.put("team_seq", team_seq);
+		return teamService.teamAccess(map);
+	}
+	
 
 	
 }

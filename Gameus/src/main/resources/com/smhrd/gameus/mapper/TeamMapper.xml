@@ -18,7 +18,7 @@
 </insert>
 
 <select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-	select * from team_info
+	select * from team_info order by team_seq desc;
 </select>
 
 <select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
@@ -40,5 +40,10 @@
 <select id="isJoined" parameterType="com.smhrd.gameus.model.TeamMember" resultType="String">
 	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
 </select>
+
+<select id="teamAccess" resultType="int">
+	select count(applicant) from team_member where applicant=#{user_id} and team_seq=#{team_seq} and confirm_yn= 'y'
+</select>
+
 
 </mapper>
