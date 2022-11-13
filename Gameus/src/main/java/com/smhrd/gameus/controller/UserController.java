@@ -79,10 +79,6 @@ public class UserController {
 	public List<CategoryInfo> userGame(@RequestBody List<Integer> usergame){
 		System.out.println(usergame);
 
-
-//		List<Integer> ugList = (List<Integer>) usergame.get("usergame");
-//		System.out.println(ugList.getClass().getName());
-		
 		return userService.userGame(usergame);
 	}
 	

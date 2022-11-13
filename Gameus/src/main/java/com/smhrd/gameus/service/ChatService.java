@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.mapper.ChatMapper;
+import com.smhrd.gameus.model.ChattingInfo;
+import com.smhrd.gameus.model.ChattingPlusInfo;
 
 @Service
 public class ChatService {
@@ -20,8 +22,8 @@ public class ChatService {
 		chatMapper.sendMessage(map);
 	}
 	
-	public List<HashMap<String, Object>> receiveMessage(HashMap<String, Object> map) {
-		return chatMapper.receiveMessage(map);
+	public List<ChattingPlusInfo> receiveMessage(String team_seq) {
+		return chatMapper.receiveMessage(team_seq);
 	}
 	
 }

@@ -33,7 +33,7 @@ public class TeamController {
 	}
 	
 	@GetMapping("/api/allteam")
-    public List<TeamInfo> list(){
+    public List<Map<String,Object>> selectAllTeam(){
         return teamService.selectAllTeam();
 	}
 
@@ -56,26 +56,6 @@ public class TeamController {
 		
 		return result;
 	}
-	
-//	@GetMapping("/api/teamcheck/{team_seq}")
-//	public String teamMore(@PathVariable("team_seq") int team_seq) {
-//		
-//		HashMap<String, Object> map = new HashMap<>();
-//		
-//		map.put("selectTm",teamService.selectTm(team_seq));
-//		map.put("selectOneTeam", teamService.selectOneTeam(team_seq));
-//		
-//		Gson gson = new Gson();
-//		
-//		String result = gson.toJson(map);
-//		
-//		return result;
-//	}
-	
-//	@PostMapping("/api/isjoined")
-//	public String isJoined(String yn) {
-//		return teamService.isJoined(yn);
-//	}
 	
 	@PostMapping("/api/teamjoin")
 	public String teamJoin(@RequestBody HashMap<String, Object> tJoin) {
@@ -102,7 +82,7 @@ public class TeamController {
 	}
 	
 	@PostMapping("/api/teamaccess/{team_seq}")
-	public int teamAccess(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> map) {
+	public Map<String, Object> teamAccess(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> map) {
 		map.put("team_seq", team_seq);
 		return teamService.teamAccess(map);
 	}

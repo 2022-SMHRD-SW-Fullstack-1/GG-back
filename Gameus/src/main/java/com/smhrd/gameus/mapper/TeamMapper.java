@@ -18,7 +18,7 @@ public interface TeamMapper {
 	
 	public void teamCap(Map<String, Object> newTeamInfo);
 	
-	public List<TeamInfo> selectAllTeam();
+	public List<Map<String, Object>> selectAllTeam();
 	
 	public List<TeamInfo> selectMyTeam(HashMap<String, Object> map);
 	
@@ -36,6 +36,6 @@ public interface TeamMapper {
 	
 	public String notiTeamName(Map<String, Object> team_seq);
 	
-	public int teamAccess(Map<String, Object> user);
+	public Map<String, Object> teamAccess(Map<String, Object> user);
 	
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.smhrd.gameus.model.VotingCount;
 import com.smhrd.gameus.model.VotingInfo;
 import com.smhrd.gameus.model.VotingListInfo;
 import com.smhrd.gameus.service.PollService;
@@ -41,21 +43,21 @@ public class PollController {
 		System.out.println(item);
 				 
 		pollService.newPoll(item);
-		pollService.pollSetting(optionList);
+//		pollService.pollSetting(optionList);
 		
 		return "새 투표 생성";
 	}
 	
 	//전체 투표 목록 보기
-	@GetMapping("/api/allpoll")
-    public List<VotingListInfo> selectAllPoll(){
-        return pollService.selectAllPoll();
+	@GetMapping("/api/teamroom/{team_seq}/poll")
+    public List<VotingCount> selectAllPoll(@PathVariable("team_seq") String team_seq){
+        return pollService.selectAllPoll(team_seq);
 	}
 	
 	//특정 투표 보기
-	@PostMapping("/api/viewpoll")
-    public VotingListInfo selectOnePoll(@RequestBody HashMap<String, Object> map) {
-		return pollService.selectOnePoll(map);
+	@GetMapping("/api/teamroom/{team_seq}/poll/{vl_seq}")
+    public VotingCount selectOnePoll(@PathVariable("team_seq") String team_seq, @PathVariable("vl_seq") String vl_seq) {
+		return pollService.selectOnePoll(team_seq, vl_seq);
 	}
 	
 	//가장 최근 투표 보기
@@ -82,14 +84,20 @@ public class PollController {
 	}
 	
 	@PostMapping("/api/pollresult")
-	public String pollResult(@RequestBody HashMap<String, Object> map){
-	
+	public HashMap<String,Object> pollResult(@RequestBody HashMap<String, Object> map){
+	System.out.println(map);
 		Gson gson = new Gson();
-		String option = (String) map.get("options");
-		System.out.println(option);
-        String[] optionList = gson.fromJson(option, String[].class);
-        System.out.println(optionList);
-		return pollService.pollResult(optionList);
+//		String option = (String) map.get("vt_items");
+//		System.out.println(option);
+//        String[] optionList = gson.fromJson(option, String[].class);
+//		String[] optionList = map.get("vt_items");
+		ArrayList optionList = (ArrayList) map.get("vt_items");
+
+		System.out.println(optionList);
+        System.out.println(pollService.pollResult(map));
+        return pollService.pollResult(map) ;
 	}
 	
+	
 }
+

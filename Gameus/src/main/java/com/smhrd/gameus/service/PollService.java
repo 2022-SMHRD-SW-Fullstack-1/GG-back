@@ -1,5 +1,6 @@
 package com.smhrd.gameus.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.mapper.PollMapper;
+import com.smhrd.gameus.model.VotingCount;
 import com.smhrd.gameus.model.VotingInfo;
 import com.smhrd.gameus.model.VotingListInfo;
 
@@ -24,13 +26,13 @@ public class PollService {
 	}
 
 	// 전체 투표 목록 가져오기
-	public List<VotingListInfo> selectAllPoll() {
-		return pollMapper.selectAllPoll();
+	public List<VotingCount> selectAllPoll(String team_seq) {
+		return pollMapper.selectAllPoll(team_seq);
 	};
 
 	// 특정 투표만 가져오기
-	public VotingListInfo selectOnePoll(HashMap<String, Object> map) {
-		return pollMapper.selectOnePoll(map);
+	public VotingCount selectOnePoll(String team_seq, String vl_seq) {
+		return pollMapper.selectOnePoll(team_seq, vl_seq);
 	};
 
 	// 가장 최근 투표 가져오기
@@ -48,13 +50,14 @@ public class PollService {
 		pollMapper.voting(map);
 	}
 
-	public String pollResult(String[] optionList) {
-		return pollMapper.pollResult(optionList);
+	public HashMap<String, Object> pollResult(HashMap<String, Object> map) {
+		return pollMapper.pollResult(map);
 	}
 	
 	public void pollSetting(String[] optionList)	{
 	
 	pollMapper.pollSetting(optionList);
 	}
+
 
 }
