@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.GameUserInfo;
 import com.smhrd.gameus.model.NotificationInfo;
 import com.smhrd.gameus.model.UserInfo;
@@ -75,7 +76,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/api/usergame")
-	public List<GameUserInfo> userGame(@RequestBody Map<String, Object> usergame){
+	public List<CategoryInfo> userGame(@RequestBody Map<String, Object> usergame){
 		System.out.println(usergame);
 		System.out.println(usergame.get("usergame"));
 

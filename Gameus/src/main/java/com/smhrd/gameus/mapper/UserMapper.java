@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.GameUserInfo;
 import com.smhrd.gameus.model.NotificationInfo;
 import com.smhrd.gameus.model.UserInfo;
@@ -26,5 +27,5 @@ public interface UserMapper {
 	
 	public List<Map<String, Object>> userProfile(Map<String, Object> user_nick);
 	
-	public List<GameUserInfo> userGame(Map<String, Object> usergame);
+	public List<CategoryInfo> userGame(Map<String, Object> usergame);
 }

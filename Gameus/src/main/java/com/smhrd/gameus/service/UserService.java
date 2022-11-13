@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.smhrd.gameus.mapper.UserMapper;
+import com.smhrd.gameus.model.CategoryInfo;
 import com.smhrd.gameus.model.GameUserInfo;
 import com.smhrd.gameus.model.NotificationInfo;
 import com.smhrd.gameus.model.UserInfo;
@@ -43,7 +44,7 @@ public class UserService {
 		return userMapper.userProfile(user_nick);
 	}
 	
-	public List<GameUserInfo> userGame(Map<String, Object> usergame){
+	public List<CategoryInfo> userGame(Map<String, Object> usergame){
 		return userMapper.userGame(usergame);
 	}
 }
