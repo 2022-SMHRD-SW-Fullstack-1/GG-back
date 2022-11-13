@@ -1,5 +1,6 @@
 package com.smhrd.gameus.mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.smhrd.gameus.model.VotingCount;
 import com.smhrd.gameus.model.VotingInfo;
 import com.smhrd.gameus.model.VotingListInfo;
 
@@ -15,9 +17,9 @@ public interface PollMapper {
 	
 	public void newPoll(HashMap<String,Object> map);
 
-	public List<VotingListInfo> selectAllPoll();
+	public List<VotingCount> selectAllPoll(String team_seq);
 	
-	public VotingListInfo selectOnePoll(HashMap<String,Object> map);
+	public VotingCount selectOnePoll(String team_seq, String vl_seq);
 	
 	public List<VotingListInfo> selectRecentPoll();
 	
@@ -27,6 +29,6 @@ public interface PollMapper {
 	
 	public void pollSetting(String[] optionList);
 	
-	public String pollResult (String [] optionList);
+	public HashMap<String, Object> pollResult (HashMap<String, Object> map);
 
 }

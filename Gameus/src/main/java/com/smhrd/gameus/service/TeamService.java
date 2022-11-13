@@ -26,7 +26,7 @@ public class TeamService {
 		teamMapper.teamCap(newTeamInfo);
 	}
 
-	public List<TeamInfo> selectAllTeam() {
+	public List<Map<String, Object>> selectAllTeam() {
 		return teamMapper.selectAllTeam();
 	}
 
@@ -55,7 +55,7 @@ public class TeamService {
 		return teamMapper.isJoined(tJoin);
 	}
 
-	public int teamAccess(Map<String, Object> user) {
+	public Map<String, Object> teamAccess(Map<String, Object> user) {
 		return teamMapper.teamAccess(user);
 	}
 

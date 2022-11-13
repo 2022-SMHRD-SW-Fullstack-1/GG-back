@@ -28,6 +28,19 @@ public class UserController {
 		System.out.println(signupInfo);
 		}
 
+//	@PostMapping("/api/login")
+//	public Map<String,Object> login(@RequestBody UserInfo user) {
+//		String jsonStr = gs.toJson(user);
+//
+//    	UserInfo users = gs.fromJson(jsonStr, UserInfo.class);
+//
+//    return	userService.loginMember(users.getUser_id(), user.getUser_pw());
+//
+//
+//	
+//	}
+	
+	
 	@PostMapping("/api/login")
 	public String login(@RequestBody UserInfo user) {
 		System.out.println(user);

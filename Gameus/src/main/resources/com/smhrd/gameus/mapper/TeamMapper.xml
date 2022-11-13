@@ -17,8 +17,10 @@
 	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'n')
 </insert>
 
-<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-	select * from team_info order by team_seq desc;
+<select id="selectAllTeam" resultType="Map">
+	select team_seq, team_name, team_opendate, team_max, user_id, team_content, team_game, team_td, team_position, team_gender, team_age, 
+	(select count(confirm_yn) from team_member where team_seq = ti.team_seq and confirm_yn = 'y') as member_count
+	from team_info ti order by team_seq desc;
 </select>
 
 <select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
@@ -41,8 +43,8 @@
 	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
 </select>
 
-<select id="teamAccess" resultType="int">
-	select count(applicant) from team_member where applicant=#{user_id} and team_seq=#{team_seq} and confirm_yn= 'y'
+<select id="teamAccess" resultType="Map">
+	select count(applicant) as memCk, (select team_name from team_info where team_seq=#{team_seq})as team_name from team_member where applicant=#{user_id} and team_seq=#{team_seq} and confirm_yn= 'y'
 </select>
 
 
