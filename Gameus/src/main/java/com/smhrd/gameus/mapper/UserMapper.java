@@ -27,5 +27,5 @@ public interface UserMapper {
 	
 	public List<Map<String, Object>> userProfile(Map<String, Object> user_nick);
 	
-	public List<CategoryInfo> userGame(Map<String, Object> usergame);
+	public List<CategoryInfo> userGame(List<Integer> usergame);
 }

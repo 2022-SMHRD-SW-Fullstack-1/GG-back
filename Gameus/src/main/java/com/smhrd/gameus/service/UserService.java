@@ -44,7 +44,7 @@ public class UserService {
 		return userMapper.userProfile(user_nick);
 	}
 	
-	public List<CategoryInfo> userGame(Map<String, Object> usergame){
+	public List<CategoryInfo> userGame(List<Integer> usergame){
 		return userMapper.userGame(usergame);
 	}
 }

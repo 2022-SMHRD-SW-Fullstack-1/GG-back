@@ -76,12 +76,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/api/usergame")
-	public List<CategoryInfo> userGame(@RequestBody Map<String, Object> usergame){
+	public List<CategoryInfo> userGame(@RequestBody List<Integer> usergame){
 		System.out.println(usergame);
-		System.out.println(usergame.get("usergame"));
 
-		List<Integer> ugList = (List<Integer>) usergame.get("usergame");
-		System.out.println(ugList.getClass().getName());
+
+//		List<Integer> ugList = (List<Integer>) usergame.get("usergame");
+//		System.out.println(ugList.getClass().getName());
 		
 		return userService.userGame(usergame);
 	}

@@ -32,11 +32,11 @@
 	
 	<select id="userGame" resultType="com.smhrd.gameus.model.CategoryInfo">
 		select * from category_info
-		where category_seq in(
-		<foreach collection="ugList" item="item" separator=",">
-			#{item}
-		</foreach>
-		)
+			where category_seq in(
+			<foreach collection="usergame" item="item" separator=",">
+				#{item}
+			</foreach>
+			)
 	</select>
 	
 </mapper>
