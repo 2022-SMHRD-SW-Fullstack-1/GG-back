@@ -22,7 +22,7 @@ public interface TeamMapper {
 	
 	public List<TeamInfo> selectMyTeam(HashMap<String, Object> map);
 	
-	public TeamInfo selectOneTeam(HashMap<String, Object> map);
+	public Map<String, Object> selectOneTeam(HashMap<String, Object> map);
 	
 	public int selectTm(HashMap<String, Object> map);
 	
@@ -35,4 +35,7 @@ public interface TeamMapper {
 	public void capNoti(HashMap<String, Object> tJoin);
 	
 	public String notiTeamName(Map<String, Object> team_seq);
+	
+	public int teamAccess(Map<String, Object> user);
+	
 }

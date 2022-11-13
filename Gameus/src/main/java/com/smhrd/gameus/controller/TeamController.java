@@ -100,6 +100,12 @@ public class TeamController {
 	public String notiTeamName(@RequestBody Map<String, Object> team_seq) {
 		return teamService.notiTeamName(team_seq);
 	}
+	
+	@PostMapping("/api/teamaccess/{team_seq}")
+	public int teamAccess(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> map) {
+		map.put("team_seq", team_seq);
+		return teamService.teamAccess(map);
+	}
 
 	
 }

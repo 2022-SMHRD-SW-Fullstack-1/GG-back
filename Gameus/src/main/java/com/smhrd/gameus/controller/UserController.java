@@ -1,15 +1,18 @@
 package com.smhrd.gameus.controller;
 
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.smhrd.gameus.model.GameUserInfo;
 import com.smhrd.gameus.model.NotificationInfo;
 import com.smhrd.gameus.model.UserInfo;
 import com.smhrd.gameus.service.UserService;
@@ -17,7 +20,7 @@ import com.smhrd.gameus.service.UserService;
 @RestController
 public class UserController {
 	
-	Gson gs=new Gson();
+	Gson gs = new Gson();
 
 	@Autowired
 	UserService userService;	
@@ -25,7 +28,11 @@ public class UserController {
 	@PostMapping("/api/signup")
 	public void signupAdd(@RequestBody Map<String, Object> signupInfo) {
 		userService.signupAdd(signupInfo);
-		System.out.println(signupInfo);
+		
+		String user_id = (String) signupInfo.get("email");
+		List<Integer> cateList = (List<Integer>) signupInfo.get("gameCategory");
+		
+		userService.userGameInfo(user_id, cateList);
 		}
 
 	@PostMapping("/api/login")
@@ -43,7 +50,7 @@ public class UserController {
 		System.out.println(loginM);
 
 		if(loginM!=null) {
-			return "success";//로그인 성공	
+			return loginM;//로그인 성공	
 		} else {
 			return "fail";//로그인 실패
 		}
@@ -59,6 +66,25 @@ public class UserController {
 		userService.delNoti(delNoti);
 		return userService.notiList(delNoti);
 	}
+	
+	@PostMapping("/api/profile")
+	public List<Map<String, Object>> userProfile(@RequestBody Map<String, Object> user_nick) {
+		System.out.println("받아오는 값"+user_nick);
+		System.out.println(userService.userProfile(user_nick));
+		return userService.userProfile(user_nick);
+	}
+	
+	@PostMapping("/api/usergame")
+	public List<GameUserInfo> userGame(@RequestBody Map<String, Object> usergame){
+		System.out.println(usergame);
+		System.out.println(usergame.get("usergame"));
+
+		List<Integer> ugList = (List<Integer>) usergame.get("usergame");
+		System.out.println(ugList.getClass().getName());
+		
+		return userService.userGame(usergame);
+	}
+	
 	
 }
 

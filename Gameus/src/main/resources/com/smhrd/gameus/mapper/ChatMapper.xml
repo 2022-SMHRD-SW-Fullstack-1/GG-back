@@ -3,11 +3,11 @@
 <mapper namespace="com.smhrd.gameus.mapper.ChatMapper">
 
 <insert id="sendMessage" parameterType="com.smhrd.gameus.model.ChattingInfo" >
-	insert into chatting_info values (null, #{talker}, #{msg}, now(), #{cr_seq})
+	insert into chatting_info values (null, #{talker}, #{msg}, now(), #{team_seq})
 </insert>
 
 <select id="receiveMessage" resultType="java.util.HashMap">
-	select * from chatting_info where cr_seq=#{cr_seq}
+	select * from chatting_info where team_seq=#{team_seq}
 </select>
 
 </mapper>

@@ -21,8 +21,8 @@
 	select * from team_info
 </select>
 
-<select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-	select * from team_info where team_seq = #{team_seq}
+<select id="selectOneTeam" resultType="java.util.Map">
+	select * from team_info t, user_info u where t.user_id = u.user_id and t.team_seq = #{team_seq}
 </select>
 
 <select id="selectTm" resultType="int">
@@ -42,11 +42,15 @@
 </select>
 
 <insert id="capNoti">
-	insert into notification_info values(null, (select user_id from team_info where team_seq=#{team_seq}), '가입 신청이 왔습니다!', now(), now(), #{team_seq})
+	insert into notification_info values(null, (select user_id from team_info where team_seq=#{team_seq}), '가입 신청 알림', now(), now(), #{team_seq})
 </insert>
 
 <select id="notiTeamName" resultType="String">
 	select team_name from team_info where team_seq=#{team_seq}
+</select>
+
+<select id="teamAccess" resultType="int">
+	select count(applicant) from team_member where applicant=#{user_id} and team_seq=#{team_seq} and confirm_yn= 'y'
 </select>
 
 </mapper>

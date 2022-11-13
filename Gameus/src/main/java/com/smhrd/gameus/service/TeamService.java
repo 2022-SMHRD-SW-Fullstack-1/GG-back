@@ -29,7 +29,7 @@ public class TeamService {
 		return teamMapper.selectAllTeam();
 	}
 	
-	public TeamInfo selectOneTeam(HashMap<String, Object> map) {
+	public Map<String, Object> selectOneTeam(HashMap<String, Object> map) {
 		return teamMapper.selectOneTeam(map);
 	}
 	
@@ -60,6 +60,10 @@ public class TeamService {
 	
 	public String notiTeamName(Map<String, Object> team_seq) {
 		return teamMapper.notiTeamName(team_seq);
+	}
+	
+	public int teamAccess(Map<String, Object> user) {
+		return teamMapper.teamAccess(user);
 	}
 	
 //	public String isJoined(String yn) {

@@ -19,4 +19,24 @@
 		delete from notification_info where user_id=#{user_id} and noti_seq=#{noti_seq}
 	</delete>
 	
+	<insert id="userGameInfo">
+		insert into gameuser_info values 
+		<foreach collection="cateList" index="index" item="item" separator=",">
+			(null, #{user_id}, #{item})
+		</foreach>
+	</insert>
+	
+	<select id="userProfile" resultType="java.util.Map" parameterType="java.util.Map">
+		select * from user_info u, gameuser_info g where u.user_id = g.user_id and u.user_nick=#{user_nick}
+	</select>
+	
+	<select id="userGame" resultType="com.smhrd.gameus.model.CategoryInfo">
+		select * from category_info
+		where category_seq in(
+		<foreach collection="ugList" item="item" separator="," open="(" close=")">
+			#{item.value}
+		</foreach>
+		)
+	</select>
+	
 </mapper>

@@ -20,12 +20,17 @@ public class FilterRestController {
 	
 	@GetMapping("/api/filter")
 	public List<CategoryInfo> filterMenu(@RequestParam("game") String game) {
-		return filterService.filterMenu(game); 
+
+		List<CategoryInfo> categoryList =filterService.filterMenu(game);
+		categoryList.addAll(filterService.commonFilterList());
+		return categoryList;
+		
 	}
 	
 	@GetMapping("/api/teamsearch/filter")
 	public List<CategoryInfo> filterTeam(@RequestParam("id") List<String> categoryNum ) {
-		System.out.println(categoryNum);
+		
 		return filterService.filterTeam(categoryNum);
+		
 	}
 }

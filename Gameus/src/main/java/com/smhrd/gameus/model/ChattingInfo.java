@@ -20,6 +20,6 @@ public class ChattingInfo {
     private Date msg_time;
 
     // 방 순번 
-    private int cr_seq;
+    private int team_seq;
     
 }

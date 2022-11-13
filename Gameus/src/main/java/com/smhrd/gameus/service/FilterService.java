@@ -25,4 +25,8 @@ public class FilterService {
 		System.out.println(filterMapper.filterTeam(categoryNum));
 		return filterMapper.filterTeam(categoryNum);
 	}
+	
+	public List<CategoryInfo> commonFilterList() {
+		return filterMapper.commonFilterList();
+	}
 }

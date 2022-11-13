@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,20 +24,26 @@ public class CalendarRestController {
 	CalendarService calendarService;
 	
 	@PostMapping("/api/teamroom/{team_seq}/calendar")
-	public void addCalendar(@PathVariable("team_seq")String team_seq, @RequestBody Map<String, Object> schedule) {
-		System.out.println(schedule);
+	public String addCalendar(@PathVariable("team_seq")int team_seq, @RequestBody Map<String, Object> schedule) {
+		schedule.put("team_seq", team_seq);
 		calendarService.addCalendar(team_seq, schedule);
+		return schedule.get("calId").toString();
 	}
 	
 	@GetMapping("/api/teamroom/{team_seq}/calendar")
 	public List<CalendarInfo> viewAllCalendar(@PathVariable("team_seq")String team_seq) {
 		return calendarService.viewAllCalendar(team_seq);
-
 	}
-
+	
 	@PatchMapping("/api/teamroom/{team_seq}/calendar/{cal_seq}")
 	public void updateCalendar(@PathVariable("cal_seq") String cal_seq, @RequestBody Map<String, Object> schedule ) {
 		schedule.put("cal_seq", cal_seq);
 		calendarService.updateCalendar(schedule);
 	}
+	
+	@DeleteMapping("/api/teamroom/{team_seq}/calendar/{cal_seq}")
+	public void deleteCalendar(@PathVariable("cal_seq") String cal_seq) {
+		calendarService.deleteCalendar(cal_seq);
+	}
+	
 }
