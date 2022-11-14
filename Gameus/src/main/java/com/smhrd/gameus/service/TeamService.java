@@ -58,6 +58,10 @@ public class TeamService {
 		teamMapper.capNoti(tJoin);
 	}
 	
+	public void setConfirmNoti(HashMap<String, Object> map) {
+		teamMapper.setConfirmNoti(map);
+	}
+	
 	public String notiTeamName(Map<String, Object> team_seq) {
 		return teamMapper.notiTeamName(team_seq);
 	}

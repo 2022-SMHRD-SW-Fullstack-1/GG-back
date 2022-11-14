@@ -34,6 +34,8 @@ public interface TeamMapper {
 	
 	public void capNoti(HashMap<String, Object> tJoin);
 	
+	public void setConfirmNoti(HashMap<String, Object> map);
+	
 	public String notiTeamName(Map<String, Object> team_seq);
 	
 	public Map<String, Object> teamAccess(Map<String, Object> user);

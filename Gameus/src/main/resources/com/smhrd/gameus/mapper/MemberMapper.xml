@@ -7,11 +7,11 @@
 </select>
 
 <delete id="deleteTm">
-	delete from team_member where applicant = #{applicant}
+	delete from team_member where applicant = #{applicant}  and team_seq = #{team_seq}
 </delete>
 
 <update id="confirmTm">
-	update team_member set confirm_yn = 'y' where applicant = #{applicant}
+	update team_member set confirm_yn = 'y' where applicant = #{applicant}  and team_seq = #{team_seq}
 </update>
 
 <update id="setFavor">
