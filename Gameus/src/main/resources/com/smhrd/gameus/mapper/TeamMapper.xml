@@ -47,6 +47,10 @@
 	insert into notification_info values(null, (select user_id from team_info where team_seq=#{team_seq}), '가입 신청 알림', now(), now(), #{team_seq})
 </insert>
 
+<insert id="setConfirmNoti">
+	insert into notification_info values(null, #{applicant}, '가입 승인 알림', now(), now(), #{team_seq})
+</insert>
+
 <select id="notiTeamName" resultType="String">
 	select team_name from team_info where team_seq=#{team_seq}
 </select>

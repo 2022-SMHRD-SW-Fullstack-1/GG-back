@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.gameus.service.MemberService;
+import com.smhrd.gameus.service.TeamService;
 
 @RestController
 public class MemberController {
 
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	TeamService teamService;
 			
 	@GetMapping("/api/teamsetting/{team_seq}")
 	public List<HashMap<String, Object>> selectAllTm(@PathVariable("team_seq") int num) {
@@ -33,6 +37,7 @@ public class MemberController {
 	public void confirmTm(@RequestBody HashMap<String, Object> id) {
 		System.out.println(id);
 		memberService.confirmTm(id);
+		teamService.setConfirmNoti(id);
 	}
 	
 	@PostMapping("/api/teammember/update")

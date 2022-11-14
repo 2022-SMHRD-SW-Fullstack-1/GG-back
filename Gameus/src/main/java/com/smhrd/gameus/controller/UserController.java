@@ -51,7 +51,7 @@ public class UserController {
 		System.out.println(loginM);
 
 		if(loginM!=null) {
-			return loginM;//로그인 성공	
+			return "success";//로그인 성공	
 		} else {
 			return "fail";//로그인 실패
 		}
