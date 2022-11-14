@@ -10,4 +10,10 @@
 			</foreach>
 		)
 	</select>
+	
+	<select id="commonFilterList" resultType="com.smhrd.gameus.model.CategoryInfo">
+		select *
+		from category_info
+		where game_section in ('나이', '성별')
+	</select>
 </mapper>
