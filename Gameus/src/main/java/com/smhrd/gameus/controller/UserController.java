@@ -38,17 +38,11 @@ public class UserController {
 
 	@PostMapping("/api/login")
 	public String login(@RequestBody UserInfo user) {
-		System.out.println(user);
-		System.out.println("받아오는 아이디"+user.getUser_id());
-
 		String jsonStr = gs.toJson(user);
-    	System.out.println("로그인 :" + jsonStr);
 
     	UserInfo users = gs.fromJson(jsonStr, UserInfo.class);
-    	System.out.println(users.toString());
 
     	String loginM = userService.loginMember(users.getUser_id(), user.getUser_pw());
-		System.out.println(loginM);
 
 		if(loginM!=null) {
 			return "success"; //로그인 성공	
@@ -70,15 +64,11 @@ public class UserController {
 	
 	@PostMapping("/api/profile")
 	public List<Map<String, Object>> userProfile(@RequestBody Map<String, Object> user_nick) {
-		System.out.println("받아오는 값"+user_nick);
-		System.out.println(userService.userProfile(user_nick));
 		return userService.userProfile(user_nick);
 	}
 	
 	@PostMapping("/api/usergame")
 	public List<CategoryInfo> userGame(@RequestBody List<Integer> usergame){
-		System.out.println(usergame);
-
 		return userService.userGame(usergame);
 	}
 	
