@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.MemberMapper">
 <select resultType="java.util.HashMap" id="selectAllTm">
-	select tm.tm_seq, tm.team_seq, tm.applicant, tm_date, tm.confirm_yn, ui.user_icon, ui.user_nick, (select user_id from team_info where team_seq=#{team_seq}) as team_admin
+	select tm.tm_seq, tm.team_seq, tm.applicant, tm_date, tm.confirm_yn, ui.user_favor, ui.user_icon, ui.user_nick, (select user_id from team_info where team_seq=#{team_seq}) as team_admin
 	from team_member tm, user_info ui where tm.applicant = ui.user_id and team_seq = #{team_seq}
 </select>
 
