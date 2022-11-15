@@ -3,26 +3,28 @@
 <mapper namespace="com.smhrd.gameus.mapper.TeamMapper">
 
 <insert id="teamAdd" parameterType="com.smhrd.gameus.model.TeamInfo">
-	insert into team_info values(null, #{teamName}, now(), #{teamMax}, 'user_id 055', #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
+	insert into team_info values(null, #{teamName}, now(), #{teamMax}, #{user_id}, #{teamContent}, #{teamGame}, #{teamTD}, #{teamPosition}, #{teamGender}, #{teamAge})
 </insert>
 
 <insert id="teamCap" parameterType="com.smhrd.gameus.model.TeamMember">
 <selectKey resultType="int" keyProperty="team_seq" order="BEFORE">
 	select max(team_seq) from team_info
 </selectKey>
-	insert into team_member values(null, #{team_seq}, 'user_id 055', now(), 'y')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'y')
 </insert>
 
 <insert id="teamJoin" parameterType="com.smhrd.gameus.model.TeamMember">
-	insert into team_member values(null, #{team_seq}, 'user_id 020', now(), 'n')
+	insert into team_member values(null, #{team_seq}, #{user_id}, now(), 'n')
 </insert>
 
-<select id="selectAllTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-	select * from team_info
+<select id="selectAllTeam" resultType="Map">
+	select team_seq, team_name, team_opendate, team_max, user_id, team_content, team_game, team_td, team_position, team_gender, team_age, 
+	(select count(confirm_yn) from team_member where team_seq = ti.team_seq and confirm_yn = 'y') as member_count
+	from team_info ti order by team_seq desc;
 </select>
 
-<select id="selectOneTeam" resultType="com.smhrd.gameus.model.TeamInfo">
-	select * from team_info where team_seq = #{team_seq}
+<select id="selectOneTeam" resultType="java.util.Map">
+	select * from team_info t, user_info u where t.user_id = u.user_id and t.team_seq = #{team_seq}
 </select>
 
 <select id="selectTm" resultType="int">
@@ -35,6 +37,26 @@
 
 <select resultType="java.util.HashMap" id="selectMyTeam" parameterType="java.util.HashMap">
 	select * from team_info ti, team_member tm where ti.team_seq = tm.team_seq and tm.applicant = #{applicant} and tm.confirm_yn =#{confirm_yn}
+</select>
+
+<select id="isJoined" parameterType="com.smhrd.gameus.model.TeamMember" resultType="String">
+	select confirm_yn from team_member where applicant=#{user_id} and team_seq=#{team_seq}
+</select>
+
+<insert id="capNoti">
+	insert into notification_info values(null, (select user_id from team_info where team_seq=#{team_seq}), '가입 신청 알림', now(), now(), #{team_seq})
+</insert>
+
+<insert id="setConfirmNoti">
+	insert into notification_info values(null, #{applicant}, '가입 승인 알림', now(), now(), #{team_seq})
+</insert>
+
+<select id="notiTeamName" resultType="String">
+	select team_name from team_info where team_seq=#{team_seq}
+</select>
+
+<select id="teamAccess" resultType="Map">
+	select count(applicant) as memCk, (select team_name from team_info where team_seq=#{team_seq})as team_name from team_member where applicant=#{user_id} and team_seq=#{team_seq} and confirm_yn= 'y'
 </select>
 
 </mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.gameus.mapper.PollMapper">
+
+<insert id="newPoll" parameterType="com.smhrd.gameus.model.VotingListInfo" useGeneratedKeys="true" keyProperty="post_num">
+	insert into voting_list_info values (null, #{desc}, #{endtime}, #{user_id}, #{team_seq}, now(), #{options})
+</insert>
+
+<select id="selectAllPoll" resultType="com.smhrd.gameus.model.VotingCount">
+	select vl_seq, vl_subject, vl_end_dt, user_id, team_seq, reg_date, vl_items, 
+	(select count(*) from voting_info where vl_seq = vli.vl_seq) as vt_count 
+	from voting_list_info vli where team_seq=#{team_seq} order by vl_seq desc
+</select>
+
+<select id="selectOnePoll" parameterType="String" resultType="com.smhrd.gameus.model.VotingCount">
+	select vl_seq, vl_subject, vl_end_dt, user_id, team_seq, reg_date, vl_items, (select count(*) from voting_info where vl_seq = #{vl_seq} ) as vt_count from voting_list_info where team_seq=#{team_seq} and vl_seq=#{vl_seq}
+</select>
+
+<select id="selectRecentPoll" resultType="com.smhrd.gameus.model.VotingListInfo">
+	select * from voting_list_info where vl_seq=(select max(vl_seq) from voting_list_info)
+</select>
+
+<select id="pollDetail" resultType="java.util.HashMap">
+	select vt_result as text, count(*) as vote, ((select count(*) from voting_info where vl_seq = #{vl_seq})-(select count(DISTINCT vt_result)  from voting_info where vl_seq=#{vl_seq})) as sum
+		from voting_info
+		Group by vt_result, vl_seq  
+		Having vl_seq = #{vl_seq}
+</select>
+
+<insert id="voting">
+	insert into voting_info values (null, #{user_id}, #{vl_seq}, #{vt_result}, now())
+</insert>
+
+<insert id="pollSetting">
+	insert into voting_info values
+	<foreach collection="optionList" index="index" item="item" separator=",">
+		(null,'test',LAST_INSERT_ID(),#{item},now())
+	</foreach>
+</insert>
+
+<select id="pollResult" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	select 
+	<foreach collection="vt_items" item="item" index="index" separator=",">
+		count(case when vt_result = #{item} then 1 end) as #{item}
+	</foreach>
+	FROM voting_info
+	where vl_seq = #{vl_seq}
+</select>
+
+</mapper>

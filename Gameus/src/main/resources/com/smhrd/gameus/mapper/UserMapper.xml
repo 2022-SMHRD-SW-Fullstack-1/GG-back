@@ -2,6 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.UserMapper">
 
+	<insert id="signupAdd">
+		insert into user_info (user_id, user_pw, user_nick, user_birthdate,
+		user_gender, user_joindate) values(#{email}, #{password}, #{username}, #{age}, #{gender}, #{joindate})
+	</insert>
 
-
+	<select id="loginMember" resultType="String">
+		select * from user_info where user_id=#{id} and user_pw=#{pw}
+	</select>
+	
+	<select id="notiList" resultType="com.smhrd.gameus.model.NotificationInfo">
+		select * from notification_info where user_id=#{user_id} order by noti_seq desc
+	</select>
+	
+	<delete id="delNoti" parameterType="com.smhrd.gameus.model.NotificationInfo">
+		delete from notification_info where user_id=#{user_id} and noti_seq=#{noti_seq}
+	</delete>
+	
+	<insert id="userGameInfo">
+		insert into gameuser_info values 
+		<foreach collection="cateList" index="index" item="item" separator=",">
+			(null, #{user_id}, #{item})
+		</foreach>
+	</insert>
+	
+	<select id="userProfile" resultType="java.util.Map" parameterType="java.util.Map">
+		select * from user_info u, gameuser_info g where u.user_id = g.user_id and u.user_nick=#{user_nick}
+	</select>
+	
+	<select id="userGame" resultType="com.smhrd.gameus.model.CategoryInfo">
+		select * from category_info
+			where category_seq in(
+			<foreach collection="usergame" item="item" separator=",">
+				#{item}
+			</foreach>
+			)
+	</select>
+	
 </mapper>

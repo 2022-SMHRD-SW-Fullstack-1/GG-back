@@ -15,4 +15,5 @@ public interface FilterMapper {
 	
 	public List<CategoryInfo> filterTeam(List<String> categoryNum);
 	
+	public List<CategoryInfo> commonFilterList();
 }

@@ -2,15 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.MemberMapper">
 <select resultType="java.util.HashMap" id="selectAllTm">
-	select * from team_member tm, user_info ui where tm.applicant = ui.user_id and team_seq = #{team_seq}
+	select tm.tm_seq, tm.team_seq, tm.applicant, tm_date, tm.confirm_yn, ui.user_favor, ui.user_icon, ui.user_nick, (select user_id from team_info where team_seq=#{team_seq}) as team_admin
+	from team_member tm, user_info ui where tm.applicant = ui.user_id and team_seq = #{team_seq}
 </select>
 
 <delete id="deleteTm">
-	delete from team_member where applicant = #{applicant}
+	delete from team_member where applicant = #{applicant}  and team_seq = #{team_seq}
 </delete>
 
 <update id="confirmTm">
-	update team_member set confirm_yn = 'y' where applicant = #{applicant}
+	update team_member set confirm_yn = 'y' where applicant = #{applicant}  and team_seq = #{team_seq}
 </update>
 
 <update id="setFavor">

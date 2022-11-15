@@ -2,12 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.gameus.mapper.ChatMapper">
 
-<insert id="sendMessage" parameterType="com.smhrd.gameus.model.ChattingInfo" >
-	insert into chatting_info values (null, #{talker}, #{msg}, now(), #{cr_seq})
+<insert id="sendMessage" parameterType="HashMap" >
+	insert into chatting_info values (null, #{talker}, #{msg}, now(), #{team_seq})
 </insert>
 
-<select id="receiveMessage" resultType="java.util.HashMap">
-	select * from chatting_info where cr_seq=#{cr_seq}
+<select id="receiveMessage" resultType="com.smhrd.gameus.model.ChattingPlusInfo">
+	select chatting_seq, talker, msg, msg_time, team_seq, (select user_icon from user_info where user_id = ci.talker) as user_icon, 
+	(select user_nick from user_info where user_id = ci.talker) as user_nick  
+	from chatting_info ci
+	where team_seq = #{team_seq}
 </select>
 
 </mapper>
