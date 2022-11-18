@@ -8,8 +8,10 @@
 
 ## 📅 프로젝트 기간
 2022.10.06 ~ 2022.11.16 (6주)
+![015](https://user-images.githubusercontent.com/112401561/202659667-6c85299e-bf3f-4ab7-ac97-018c1a420f9c.png)
 <br>
 <br>
+
 ## ⭐ 주요 기능
 * 필터링을 통한 팀 조회 및 팀원 모집
 * 팀원 간 일정 공유 및 채팅
@@ -28,13 +30,21 @@
             <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
             <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+            <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
         </td>
     </tr>
     <tr>
         <td>라이브러리</td>
         <td>
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+            <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+            <img src="https://img.shields.io/badge/Axios-007CE2?style=for-the-badge&logo=axios&logoColor=white" >
+        </td>
+    </tr>
+    <tr>
+        <td>프레임워크</td>
+        <td>
+            <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -53,15 +63,14 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+            <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>협업도구</td>
         <td>
-            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=Slack&logoColor=white"/>
         </td>
     </tr>
 </table>
@@ -69,20 +78,16 @@
 
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
-![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
+## ⚙ 시스템 아키텍쳐
+![017](https://user-images.githubusercontent.com/112401561/202659720-92f6d6e2-da06-4def-a8c0-c8ee3c3ffa23.png)
 <br>
 
-## 📌 SW유스케이스
-![image](https://user-images.githubusercontent.com/25995055/178401023-9a015e66-aa6e-4d74-8564-9b1f9d306649.png)
-<br>
-
-## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+## 📌 유스케이스
+![image](https://user-images.githubusercontent.com/112401561/202659294-1d8ebd64-1b6b-4c11-b09f-c2482bc57e93.png)
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![image](https://user-images.githubusercontent.com/112401561/202659106-fa9dc8ea-c386-4700-bc58-bf6427d85f38.png)
 <br>
 
 ## 🖥 화면 구성
@@ -109,27 +114,25 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>노한서</strong></td>
+    <td align="center"><strong>서정선</strong></td>
+    <td align="center"><strong>양준호</strong></td>
+    <td align="center"><strong>황성민</strong></td>
   </tr>
   <tr>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Deep Learning</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
   </tr>
 </table>
+<br>
 
 ## 🤾‍♂️ 트러블슈팅 
 * 팀 생성 시테이블 두 개 동시 insert 이슈
