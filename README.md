@@ -92,17 +92,27 @@
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+### 메인화면
+![image](https://user-images.githubusercontent.com/112401561/216873513-17e84d60-cea1-4fa5-b865-5632e050f033.png)
 <br>
 
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
-![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
+### 팀찾기/팀만들기
+![image](https://user-images.githubusercontent.com/112401561/216873643-47c62ddb-8dd9-4bc3-9a6b-7731eb109d61.png)
+![image](https://user-images.githubusercontent.com/112401561/216873719-868ccb90-9ba8-4d2b-bc6a-b4cabe3f7ca6.png)
 <br>
 
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
+### 팀룸(일정/투표)
+![image](https://user-images.githubusercontent.com/112401561/216873857-0fae749a-3a68-4591-bc54-35ee73decc7d.png)
+![image](https://user-images.githubusercontent.com/112401561/216873911-4da04d90-a2a5-4725-9b3c-14d985d8c7ce.png)
+![image](https://user-images.githubusercontent.com/112401561/216873981-c91f57ef-1fff-4fd8-923a-d49dbf911adb.png)
 <br>
+
+### 팀룸(팀원목록/프로필)
+![image](https://user-images.githubusercontent.com/112401561/216874254-332e2b73-8705-49db-808c-0efec2307180.png)
+![image](https://user-images.githubusercontent.com/112401561/216874683-2859995f-da02-46f4-894b-4cf3702bd7e1.png)
+<br>
+
+### 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
@@ -111,7 +121,6 @@
     <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
     <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
     <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>노한서</strong></td>
@@ -120,23 +129,21 @@
     <td align="center"><strong>황성민</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
+    <td align="center"><b>Full Stack</b></td>
+    <td align="center"><b>Full Stack</b></td>
+    <td align="center"><b>Full Stack</b></td>
+    <td align="center"><b>Full Stack</b></td>
   </tr>
   <tr>
+    <td align="center"><a href="https://github.com/ignaciocha" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/slowarirang" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/foroh1504" target='_blank'>github</a></td>
   </tr>
 </table>
 <br>
 
 ## 🤾‍♂️ 트러블슈팅 
-* 팀 생성 시테이블 두 개 동시 insert 이슈
- useGeneratedKeys, applicaiton 설정 변경 시도 selectKey를 이용해 개선
+* 팀 생성 시테이블 두 개 동시 insert 이슈 : useGeneratedKeys, applicaiton 설정 변경 시도 selectKey를 이용해 개선
+* 캘린더 이벤트를 조작할 때 실시간 반영이 되는 않는 이슈 : Fullcalendar API 자체 add, update, delete 적용
  <br>
-* 캘린더 이벤트를 조작할 때 실시간 반영이 되는 않는 이슈
- Fullcalendar API 자체 add, update, delete 적용
